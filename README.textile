@@ -1,0 +1,7 @@
+h1. Scala Parent
+
+p. Maven parent POM for Scala-based projects. Defines several aspects of a build-process, such as
+
+* 
+
+"!https://secure.travis-ci.org/sebhoss/scala-parent.png!":http://travis-ci.org/sebhoss/scala-parent
