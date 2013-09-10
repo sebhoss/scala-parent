@@ -1,13 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright © 2013 Sebastian Hoß <mail@shoss.de>
+    This work is free. You can redistribute it and/or modify it under the
+    terms of the Do What The Fuck You Want To Public License, Version 2,
+    as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                 PARENT                                  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <parent>
     <groupId>com.github.sebhoss</groupId>
     <artifactId>superpom</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.4</version>
   </parent>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                               INFORMATIONS                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <artifactId>scala-project</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <inceptionYear>2013</inceptionYear>
   <name>Scala Parent</name>
   <description>Parent POM for all Scala-based projects</description>
+  <url>http://github.com/sebhoss/scala-parent</url>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                                   BUILD                                 -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.5</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <args>
+            <arg>-feature</arg>
+            <arg>-deprecation</arg>
+            <arg>-unchecked</arg>
+          </args>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.13</version>
+        <configuration>
+          <includes>
+            <include>**/*Test.*</include>
+            <include>**/*Suite.*</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
